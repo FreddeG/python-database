@@ -24,16 +24,22 @@ class People:
 	def addName(self, name):
 		self.dataset[name] = Person(name)
 	def printPeople(self):
-		#self.dataset["Bob"].name = "Test"
-		new = self.dataset.pop('Bob')
-		temp = new.changeName("Robert")
-		
-		self.dataset[temp] = new
 
-		#self.dataset['Bob'].key() = "Test" 
-		print(self.dataset)
+		#print(self.dataset)
 		#print(self.dataset.pop("Bob"))
-		print([self.dataset[i].num for i in self.dataset.keys()]) #
+		print([self.dataset[i].name for i in self.dataset.keys()]) #
+
+	def editPeople(self, name):
+		#self.dataset["Bob"].name = "Test"
+		new = self.dataset.pop(name)
+		temp = new.changeName()
+		self.dataset[temp] = new
+		#self.dataset['Bob'].key() = "Test" 
+
+	def numberOfPeople(self):
+		self.number = len(self.dataset)
+		print(self.number)
+
 
 
 
@@ -42,7 +48,14 @@ Database.addName("Bob")
 Database.addName("Fredrik")
 Database.addName("Magnus")
 
-Database.printPeople()
+students = People()
+students.addName("Fredrik")
+students.addName("Bob")
+students.addName("Magnus")
+students.printPeople()
+students.numberOfPeople()
+
+#Database.printPeople()
 #if __name__ == '__main__':
 #person1 = Person("Fredrik")
 
